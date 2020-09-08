@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "Infinite_scroll_recycler_view"
