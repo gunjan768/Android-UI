@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Shared_Element.SharedActivity">
+
+    <Button
+        android:id="@+id/button_shared"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="44dp"
+        android:text="Open Activity 2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.941"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_view_gunjan"
+        app:layout_constraintVertical_bias="0.389" />
+
+    <ImageView
+        android:id="@+id/image_view_gunjan"
+        android:layout_width="180dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="312dp"
+        android:scaleType="fitXY"
+        android:transitionName="example_transition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gunjan" />
+
+    <Button
+        android:id="@+id/button_to_kens_burn_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KenBurnsView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.918"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_shared" />
+
+    <Button
+        android:id="@+id/persistent_bottom_sheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Persistent Bottom Sheet"
+        app:layout_constraintBottom_toTopOf="@+id/button_to_kens_burn_view"
+        app:layout_constraintEnd_toStartOf="@+id/button_shared"
+        app:layout_constraintHorizontal_bias="0.309"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_view_gunjan"
+        app:layout_constraintVertical_bias="0.605" />
+
+    <Button
+        android:id="@+id/modal_bottom_sheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modal bottom sheet"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_to_kens_burn_view"
+        app:layout_constraintHorizontal_bias="0.421"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/persistent_bottom_sheet" />
+
+    <Button
+        android:id="@+id/zoom_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zoom activity"
+        app:layout_constraintBottom_toTopOf="@+id/image_view_gunjan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.886" />
+</androidx.constraintlayout.widget.ConstraintLayout>
