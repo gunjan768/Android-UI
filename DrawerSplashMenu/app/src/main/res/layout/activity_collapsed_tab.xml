@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CollapsedTabActivity">
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true"
+        android:id="@+id/app_bar_layout">
+
+
+<!--     1) scroll : will scroll the CollapsingToolbarLayout, enterAlways : always be there only, enterAlwaysCollapsed : same always be there.
+         2) scroll|enterAlways : CollapsingToolbarLayout is scrollable but as soon as you scroll up tab layout will become visible (whole CollapsingToolbarLayout).
+         3) scroll|enterAlwaysCollapsed : CollapsingToolbarLayout is scrollable and when the scroll reaches top then whole CollapsingToolbarLayout will be seen.
+         4) scroll|enterAlways|enterAlwaysCollapsed : CollapsingToolbarLayout is scrollable and as soon as you scroll up toolbar (not whole CollapsingToolbarLayout)
+             will become visible and when the scroll reaches the top then only whole CollapsingToolbarLayout will be seen.
+         5) scroll|exitUntilCollapsed : scrollable plus when you scroll toolbar will get stick to the top.
+         6) scroll|enterAlways|enterAlwaysCollapsed|exitUntilCollapsed : when you combine the all the four options together then toolbar will be fixed at the
+              top ( due to exitUntilCollapsed ) plus when as soon as you start scrolling down then toolbar ( white color due to contentScrim ) plus some part
+              of the CollapsingToolbarLayout will be visible. -->
+        
+
+<!--    1) When your set titleEnabled ot false then title move to toolbar as we have set a title to toolbar. As long as titleEnabled is true title will be
+             visible on CollapsingToolbarLayout ( when you set a title to CollapsingToolbarLayout also ).
+        2) contentScrim is the color of the toolbar that is visible. Use layout_scrollFlag as scroll|enterAlwaysCollapsed and see the white color when
+            scrolled down.
+        3) If you want the color of the toolbar as transparent then use android:background="@android:color/transparent". Scroll down and see the top toolbar
+         as transparent. It will only work when contentScrim is not set otherwise it will overpower the effect of transparent toolbar -->
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/collapsing_tab_layout"
+            app:contentScrim="@android:color/white"
+            app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed|exitUntilCollapsed"
+            app:title="@string/app_name"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse"
+            app:collapsedTitleGravity="end"
+            app:expandedTitleGravity="center"
+            app:titleEnabled="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/f"
+                android:scaleType="centerCrop"
+                app:layout_collapseMode="parallax" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:contentInsetStart="72dp"
+                app:layout_collapseMode="pin"
+                app:titleTextColor="#ffff"
+                app:title="@string/app_name"
+                android:background="@android:color/transparent"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+    
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill_vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f5f5f5">
+
+
+            <!-- AboutToolbar -->
+            <RelativeLayout
+                android:id="@+id/one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:elevation="20dp"
+                android:background="@drawable/curve_background">
+
+                <RelativeLayout
+                    android:id="@+id/org"
+                    android:layout_width="30dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="15dp"
+                    android:background="#FF3D00">
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/org"
+                    android:text="@string/aboutToolBsr"
+                    android:textAllCaps="true"
+                    android:layout_marginTop="20dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="#FF3D00" />
+
+                <TextView
+                    android:layout_below="@id/text1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/g"
+                    android:layout_toEndOf="@id/org"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#757575"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:padding="15dp"/>
+
+            </RelativeLayout>
+
+
+            <!-- AboutCollapsingToolbar -->
+            <RelativeLayout
+                android:id="@+id/two"
+                android:layout_below="@id/one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="60dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/curve_background">
+
+                <RelativeLayout
+                    android:id="@+id/pur"
+                    android:layout_width="30dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="15dp"
+                    android:background="#9c27b0">
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/pur"
+                    android:text="@string/aboutCollapsingToolBsr"
+                    android:textAllCaps="true"
+                    android:layout_marginTop="20dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="#9c27b0" />
+
+                <TextView
+                    android:layout_below="@id/text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/g"
+                    android:layout_toEndOf="@id/pur"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#757575"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:paddingEnd="25dp"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+    
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
